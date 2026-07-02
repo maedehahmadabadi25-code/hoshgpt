@@ -9,15 +9,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-journey-gradient text-base shadow-glow hover:opacity-90",
+          "bg-journey-gradient text-onAccent shadow-glow hover:opacity-90",
         secondary: "glass glass-hover text-ink",
         ghost: "text-ink-muted hover:text-ink hover:bg-surface-hover",
-        destructive: "bg-danger text-base hover:opacity-90",
+        destructive: "bg-danger text-onAccent hover:opacity-90",
       },
       size: {
         default: "h-11 px-6",
         sm: "h-9 px-4 text-xs",
-        lg: "h-13 px-8 text-base",
+        lg: "h-[3.25rem] px-8 text-base",
         icon: "h-10 w-10",
       },
     },
