@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn/ui variable bridge — mapped to HoshGPT's own token names
+       in tailwind.config.ts so components + design system stay in sync. */
+    --background: 226 20% 6%;
+    --foreground: 240 9% 96%;
+
+    --card: 226 20% 8%;
+    --card-foreground: 240 9% 96%;
+
+    --popover: 226 20% 8%;
+    --popover-foreground: 240 9% 96%;
+
+    --primary: 248 78% 69%;
+    --primary-foreground: 226 20% 6%;
+
+    --secondary: 226 16% 14%;
+    --secondary-foreground: 240 9% 96%;
+
+    --muted: 226 16% 14%;
+    --muted-foreground: 235 6% 62%;
+
+    --accent: 168 70% 52%;
+    --accent-foreground: 226 20% 6%;
+
+    --destructive: 0 79% 71%;
+    --destructive-foreground: 226 20% 6%;
+
+    --border: 0 0% 100% / 0.09;
+    --input: 0 0% 100% / 0.09;
+    --ring: 248 78% 69%;
+
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-surface-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-base text-ink antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  /* Respect reduced-motion preferences site-wide */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Visible keyboard focus everywhere, on top of any component-level ring */
+  :focus-visible {
+    outline: 2px solid theme("colors.confusion.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface border border-surface-border backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-hover {
+    @apply transition-colors hover:bg-surface-hover;
+  }
+
+  .text-journey {
+    @apply bg-journey-gradient bg-clip-text text-transparent;
+  }
+
+  .rtl-nums {
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+}
